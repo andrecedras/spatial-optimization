@@ -15,42 +15,48 @@ This notebook illustrates the use of the Google Maps API to determine the optimu
 ### Obtain an API key
 * If you do not already have one, please obtain an API key by following the instructions at:
 
-https://cloud.google.com/maps-platform/
+[Google Maps home page](https://cloud.google.com/maps-platform/)
 
 
 ### Enable the various APIs on your console
 
+'''python
 apikey = '################################' # Please enter your own
-
+'''
 ### Geocoding
 
 Geocoding is the process of converting addresses (like "1600 Amphitheatre Parkway, Mountain View, CA") into 
 geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers on a map, 
 or position the map.
 
-Please see: https://developers.google.com/maps/documentation/geocoding/intro for more details
+Please see: [Google Maps Geocoding intro](https://developers.google.com/maps/documentation/geocoding/intro) for more details
 
+'''python 
 import pandas as pd # pandas - a powerful data analysis and manipulation library for Python
 import requests # Requests is an HTTP library, written in Python, for human beings.
+'''
 
 At present, we have been given a short list of addresses, so we will keep things nice and simple.  If more addresses were given in a file or other format, we will have to import it accordingly.
 
+'''python
 address_list = ["115 St Andrew’s Drive, Durban North, KwaZulu-Natal, South Africa",
                 "67 Boshoff Street, Pietermaritzburg, KwaZulu-Natal, South Africa",
                 "4 Paul Avenue, Fairview, Empangeni, KwaZulu-Natal, South Africa",
                 "166 Kerk Street, Vryheid, KwaZulu-Natal, South Africa",
                 "9 Margaret Street, Ixopo, KwaZulu-Natal, South Africa",
                 "16 Poort Road, Ladysmith, KwaZulu-Natal, South Africa"]
+'''
                
 #### Geocoding API Request Format
 A Geocoding API request takes the following form:
 
-https://maps.googleapis.com/maps/api/geocode/outputFormat?parameters
+[Google Maps Geocoding Formatting](https://maps.googleapis.com/maps/api/geocode/outputFormat?parameters)
 where outputFormat may be either of the following values:
 
 * json (recommended) indicates output in JavaScript Object Notation (JSON); or
 * xml indicates output in XML
 
+'''python
 results = []
 locations_latitude = []
 locations_longitude = []
@@ -64,19 +70,23 @@ for location_string in address_list:
     locations_latitude.append(location['lat'])
     formatted_address.append(result[0]['formatted_address'])
     results.append(result)
+'''
 
 * The code in this cell is based roughly on what is found in the geocoder documentation found at 
-* https://geocoder.readthedocs.io/api.html
+[Google Maps Geocoder API](https://geocoder.readthedocs.io/api.html)
 
+'''python
 df = pd.DataFrame({'address':address_list,'latitude':locations_latitude,'longitude':locations_longitude,
                   'formatted_address':formatted_address})
+'''
 
 ## Directions
 
-https://developers.google.com/maps/documentation/directions/start
+[Google Maps Directions API docs](https://developers.google.com/maps/documentation/directions/start)
 
 The Directions API is a service that calculates directions between locations. You can search for directions for several modes of transportation, including transit, driving, walking, or cycling.
 
+'''python
 origin=(-28.5588,29.77523)
 destination = (-29.595413,30.3799223)
 waypoints = [(-29.778758,31.043515),(-28.757862,31.902001),(-27.769209,30.79068899999999),(-30.154131,30.058675)]
@@ -96,9 +106,11 @@ layer = gmaps.directions.Directions(origin, destination,waypoints = waypoints,op
 #Add the layer
 fig.add_layer(layer)
 fig
+'''
 
 ![Optimal route](spatial-optimization/spatial-optimization.png "Optimal route as per Google maps for our list of addresses")
 
+'''python
 origin_dir='-28.5588,29.77523'
 destination_dir = '-29.595413,30.3799223'
 waypoints_dir = ['-29.778758,31.043515|-28.757862,31.902001|-27.769209,30.79068899999999|-30.154131,30.058675']
@@ -160,7 +172,7 @@ total_journey_time_mins = total_journey_time_mins%60
 
 print('The total journey time is: {} hours and {} minutes'.format(total_journey_time_hrs,
                                                                  total_journey_time_mins))
-
+'''
 
 ## Articles consulted for hints
 
@@ -168,35 +180,3 @@ print('The total journey time is: {} hours and {} minutes'.format(total_journey_
 [How to use the Google Maps Distance-Matrix API](https://medium.com/how-to-use-google-distance-matrix-api-in-python/how-to-use-google-distance-matrix-api-in-python-ef9cd895303c)
 [How to plot route using Python and Google Maps API](https://blog.alookanalytics.com/2017/02/05/how-to-plot-your-own-bikejogging-route-using-python-and-google-maps-api/)
 [Google Maps in Python](https://blog.goodaudience.com/google-maps-in-python-part-2-393f96196eaf)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
