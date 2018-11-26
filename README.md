@@ -97,7 +97,7 @@ The Directions API is a service that calculates directions between locations. Yo
     fig.add_layer(layer)
     fig
 
-![Optimal route](spatial-optimization/spatial-optimization.png "Optimal route as per Google maps for our list of addresses")
+![Optimal route](spatial-optimization.png "Optimal route as per Google maps for our list of addresses")
 
     origin_dir='-28.5588,29.77523'
     destination_dir = '-29.595413,30.3799223'
