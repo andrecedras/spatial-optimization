@@ -157,7 +157,7 @@ The Directions API is a service that calculates directions between locations. Yo
 
 ## Articles consulted for hints
 
-[Using gmplot package](https://www.geeksforgeeks.org/python-plotting-google-map-using-gmplot-package/)
-[How to use the Google Maps Distance-Matrix API](https://medium.com/how-to-use-google-distance-matrix-api-in-python/how-to-use-google-distance-matrix-api-in-python-ef9cd895303c)
-[How to plot route using Python and Google Maps API](https://blog.alookanalytics.com/2017/02/05/how-to-plot-your-own-bikejogging-route-using-python-and-google-maps-api/)
-[Google Maps in Python](https://blog.goodaudience.com/google-maps-in-python-part-2-393f96196eaf)
+* [Using gmplot package](https://www.geeksforgeeks.org/python-plotting-google-map-using-gmplot-package/)
+* [How to use the Google Maps Distance-Matrix API](https://medium.com/how-to-use-google-distance-matrix-api-in-python/how-to-use-google distance-matrix-api-in-python-ef9cd895303c)
+* [How to plot route using Python and Google Maps API](https://blog.alookanalytics.com/2017/02/05/how-to-plot-your-own-bikejogging-route-using-python-and-google-maps-api/)
+* [Google Maps in Python](https://blog.goodaudience.com/google-maps-in-python-part-2-393f96196eaf)
